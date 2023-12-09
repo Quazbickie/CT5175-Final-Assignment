@@ -2,6 +2,7 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         SelectionSort();
+        QuickSort();
     }
 
 
@@ -23,6 +24,32 @@ public class SelectionSort {
         for(int i : myArray){
             System.out.println(i);
         }
+    }
+
+    public static void QuickSort(){
+
+        int numRows = 11; // You can change this to the desired number of rows
+
+// Outer loop for rows
+        for (int i = 0; i < numRows; i++) {
+
+            // Inner loop for spaces before numbers
+            for (int j = 0; j < numRows - i - 1; j++) {
+                System.out.print("  "); // Print double space for better formatting
+            }
+
+            // Inner loop for numbers
+            int number = 1;
+            for (int k = 0; k <= i; k++) {
+                System.out.print(number + "  "); // Print the number with double space
+                number = number * (i - k) / (k + 1);
+            }
+
+            // Move to the next line after each row
+            System.out.println();
+        }
+
+
     }
 
 
