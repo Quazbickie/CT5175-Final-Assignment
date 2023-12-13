@@ -1,7 +1,7 @@
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] myArray = new int[]{78,33,22,55,44,99,04,67,100,2};
+        int[] myArray = new int[]{78,33,22,55,44,99,4,67,100,2};
         qs(myArray, 0, myArray.length-1);
         for(int i : myArray){
             System.out.println(i);
@@ -14,11 +14,18 @@ public class QuickSort {
             return;
         }
 
-        int pivot = array[array.length - 1];
+        int pivotIndex = array.length - 1;
+        int pivot = array[pivotIndex];
+        int temp = array[pivotIndex];
+        array[pivotIndex] = array[high];
+        array[high] = temp;
         int leftPointer = partition(array, low, high, pivot);
+
+
 
         qs(array, low, leftPointer-1);
         qs(array, leftPointer+1, high);
+
 
     }
 
