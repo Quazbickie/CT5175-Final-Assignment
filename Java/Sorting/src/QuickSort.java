@@ -1,7 +1,7 @@
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] myArray = new int[]{78,33,22,55,44,99,4,67,100,2,3};
+        int[] myArray = new int[]{78,33,22,55,44,99,4,67,100,2,3,-34};
         qsort(myArray, 0, myArray.length-1);
         for(int i : myArray){
             System.out.println(i);
@@ -24,20 +24,19 @@ public class QuickSort {
             while(array[rightPointer] >= pivot && leftPointer < rightPointer){
                 rightPointer--;
             }
-
-            int temp = array[leftPointer];
-            array[leftPointer] = array[rightPointer];
-            array[rightPointer] = temp;
+            swap(array, leftPointer, rightPointer);
         }
 
-        int temp = array[leftPointer];
-        array[leftPointer] = array[high];
-        array[high] = temp;
-
+        swap(array, leftPointer, high);
         qsort(array, low, leftPointer-1);
         qsort(array, leftPointer+1, high);
 
     }
 
+    public static void swap(int[] array, int index1, int index2){
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
 
 }
