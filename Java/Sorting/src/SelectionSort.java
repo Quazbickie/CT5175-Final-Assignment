@@ -4,7 +4,6 @@ public class SelectionSort {
         SelectionSort();
     }
 
-
     public static void SelectionSort(){
         int[] myArray = new int[]{12,3,2,4,5,1,123,66,43,54,78,89,96,43,22,11};
 
