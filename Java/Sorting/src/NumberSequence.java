@@ -2,7 +2,7 @@ public class NumberSequence {
 
     public static void main(String[] args) {
 
-        int numRows = 25;
+        int numRows = 8;
 
         int pascalsTriangle[][] = new int[numRows][numRows];
 
@@ -22,12 +22,20 @@ public class NumberSequence {
                     currentRow[j] = pascalsTriangle[i-1][j-1] + pascalsTriangle[i-1][j];
                 }
             }
+
             pascalsTriangle[i] = currentRow;
         }
 
         for(int i = 0; i < pascalsTriangle.length; i++){
+
+            for(int spaceCounter = (pascalsTriangle[i].length - i - 1); spaceCounter > 0; spaceCounter--){
+                System.out.print(" ");
+            }
+
             for(int j = 0; j < pascalsTriangle[i].length; j++){
-                System.out.print(pascalsTriangle[i][j] + " ");
+                if(pascalsTriangle[i][j] != 0) {
+                    System.out.print(pascalsTriangle[i][j] + "  ");
+                }
             }
             System.out.print("\n");
         }
