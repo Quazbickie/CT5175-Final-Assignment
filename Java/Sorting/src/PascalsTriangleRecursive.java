@@ -11,24 +11,33 @@ public class PascalsTriangleRecursive {
         pascal(pascalsTriangle, 1);
     }
 
+
+    //Recursive method
     public static void pascal(int[][] array, int i){
 
-
-
+        //'Base Case' - condition to stop the recursion.
+        //if i == arr.length, we have sorted every 'line'
+        //of our double array. Print triangle and return.
         if(i == array.length) {
             printPascal(array);
             return;
         }
 
+        //call sortLine method to calculate current line
         sortLine(array, i);
+
+        //'Recursive Case' - where our function calls itself
+        //call pascal method on next 'line' of our double array.
         pascal(array,i+1);
 
     }
 
+    //Logic of this method is virtually identical to my iterative method,
+    //except we only use the inner 'for-loop' as the outer 'for-loop' is
+    //handled by the recursive method.
     public static void sortLine(int[][] array, int line){
         int[] currentRow = array[line];
-
-        for(int j = 0; j < currentRow.length; j++) {
+        for(int j = 0; j <= line; j++) {
             if(j == 0){
                 currentRow[j] = 1;
             }
@@ -40,6 +49,7 @@ public class PascalsTriangleRecursive {
 
     }
 
+    //Method to neatly print Pascal's Triangle
     public static void printPascal(int[][] array){
         for(int i = 0; i < array.length; i++){
             for(int spaceCounter = (array[i].length - i - 1); spaceCounter > 0; spaceCounter--){
