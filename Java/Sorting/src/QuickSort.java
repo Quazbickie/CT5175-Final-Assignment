@@ -1,9 +1,19 @@
+import java.util.Scanner;
+
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] myArray = new int[]{78,33,22,55,44,99,4,67,100,2,3,-34};
-        qsort(myArray, 0, myArray.length-1);
-        for(int i : myArray){
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Please enter array values to be sorted, each separated by a comma!");
+        String inputString = myScanner.nextLine();
+        String[] strArray = inputString.split(",");
+        int[] intArray = new int[strArray.length];
+        for(int i = 0; i < intArray.length; i++){
+            intArray[i] = Integer.parseInt(strArray[i]);
+        }
+
+        qsort(intArray, 0, intArray.length-1);
+        for(int i : intArray){
             System.out.println(i);
         }
     }

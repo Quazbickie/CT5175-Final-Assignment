@@ -1,11 +1,22 @@
+import java.util.Scanner;
+
 public class SelectionSort {
 
     public static void main(String[] args) {
-        SelectionSort();
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Please enter array values to be sorted, each separated by a comma!");
+        String inputString = myScanner.nextLine();
+        String[] strArray = inputString.split(",");
+        int[] intArray = new int[strArray.length];
+        for(int i = 0; i < intArray.length; i++){
+            intArray[i] = Integer.parseInt(strArray[i]);
+        }
+
+        SelectionSort(intArray);
     }
 
-    public static void SelectionSort(){
-        int[] myArray = new int[]{12,3,2,4,5,1,123,66,43,54,78,89,96,43,22,11};
+    public static void SelectionSort(int[] array){
+        int[] myArray = array;
 
         //Starting at the first element in the array,
         //we step through the array and locate the index
